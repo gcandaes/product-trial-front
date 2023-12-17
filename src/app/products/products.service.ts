@@ -34,7 +34,6 @@ export class ProductsService {
 
 
     create(prod: Product): Observable<any> {
-        console.log('onCreate method id = ' + JSON.stringify(prod));
 
         return this.http.post<any>('http://localhost:9090/products', prod).pipe(
             map(createdProduct => {
@@ -50,7 +49,6 @@ export class ProductsService {
     }
 
     update(prod: Product): Observable<any>{
-        console.log('update prod = '  + prod);
         return this.http.put<any>(`http://localhost:9090/products/${prod.id}`, prod).pipe(
             map(() => {
               // Add the newly updated product to the local productslist
@@ -79,7 +77,6 @@ export class ProductsService {
 
 
     delete(id: number): Observable<any>{
-        console.log('onDelete method id = ' + id);
         return this.http.delete<any>(`http://localhost:9090/products/${id}`).pipe(
             map(() => {
               // Add the newly created product to the local productslist
